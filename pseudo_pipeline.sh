@@ -1,4 +1,9 @@
-#Pipeline for Pseudo analysis. Run this script in a directory containing pairs of fastq files, gzipped or uncompressed.
+## Project: Pseudo-Seq
+## Purpose: Pipeline for Pseudo analysis. Run this script in a directory containing pairs of fastq files, gzipped or uncompressed.
+## Created By: Gabriela Toomer
+## Created Date: November 11, 2019
+#Read the count data
+
 #Names should be of the format NAME_1.fastq NAME_2.fastq. Please remove any underscore characters except for before the final 1 or 2 in the filename.
 trimmomatic=/export/home/chris/Packages/Trimmomatic-0.38/trimmomatic-0.38.jar
 PAN_INDEX=PAN

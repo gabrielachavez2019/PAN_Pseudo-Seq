@@ -2,6 +2,12 @@
 
 ### Usage: .\calcPseudoseq.py T0_CTL.txt T0.txt test.txt
 
+## Project: Pseudo-Seq
+## Purpose: Count differential peaks between CTL and CMC samples
+## Created By: Gabriela Toomer
+## Created Date: November 11, 2019
+#Read the count data
+
 from sys import argv, exit
 
 try:

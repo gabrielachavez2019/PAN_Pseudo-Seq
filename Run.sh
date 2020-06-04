@@ -1,5 +1,5 @@
-#Cut adaptor option suggested by Demian
-cutadapt -j 5 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC -q 25,25 -o $file_prefix\_1_cleaned.fastq -p $file_prefix\_2_cleaned.fastq $file_prefix\_1.fastq $file_prefix\_2.fastq
+#Cut adaptor option suggested by Demian, worked for CONTROLS
+cutadapt -j 5 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC -q 25,25 -o trimm_1_cleaned.fastq -p trimm_2_cleaned.fastq 1.fastq 2.fastq
 
 #Cut adaptor indicated by RAP-AMT protocol
 cutadapt -a CACGACGCTCTTCCGATCT --overlap 3 --minimum-length 100  -o trimmed_T1-CMC_S3.fastq T1-CMC_S3.fastq

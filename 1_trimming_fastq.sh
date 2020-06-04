@@ -9,3 +9,6 @@ cutadapt -j 5 -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC -q 25,25 -o $file_prefix\_1_
 mv $file_prefix\_1_cleaned.fastq $file_prefix\_1.fastq
 mv $file_prefix\_2_cleaned.fastq $file_prefix\_2.fastq
 done
+
+#Adding mapping with tophat2
+ tophat2 --no-novel-indels INDEX SM-16_1_clean.fastq.gz SM-16_2_clean.fastq.gz

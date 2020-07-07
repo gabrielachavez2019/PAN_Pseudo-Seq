@@ -29,6 +29,16 @@ fastqc trimmed_T1-CMC_S3.fastq
 #For mapping from here:
 bowtie2 -t -x ../Pseudo-Seq/PAN_noK7 -U trimmed_T1-CMC_S3.fastq -S mapped_trimmed_T1-CMC_S3.sam
 
+#For the controls I used tophat 2.1.1
+#I build the index as CONTROL with 
+bowtie-build CONTROL.fa CONTROL
+tophat2 --no-novel-indels CONTROL SM-16_1_clean.fastq.gz SM-16_2_clean.fastq.gz 
+mv tophat_out/ SM-16/
+#samtools view -Sb mapped_trimmed_T1-CMC_S3.sam > mapped_trimmed_T1-CMC_S3.bam
+#samtools view -Sb SM-16/accepted_hits.bam
+samtools view -h SM-16/accepted_hits.bam > SM-16.sam
+cat SM-16.sam | awk '{print $4}' > SM-16.tex
+
 #Batch script to align multiple sets of fastq files to a reference with bwa
 #Run from within a directory that contains fastq files of the form NAME_1.fastq and NAME_2.fastq
 #Remove any extra "_" or "." symbols from NAME

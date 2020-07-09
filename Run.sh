@@ -65,7 +65,8 @@ samtools view -Sb mapped_trimmed_T1-CMC_S3.sam > mapped_trimmed_T1-CMC_S3.bam
 cat mapped_trimmed_T1-CMC_S3.sam | awk '{print $4}' > temporary02.tex 
 #If you also need the read sequence
 cat mapped_trimmed_T1-CMC_S3.sam | awk '{print $4,$10}' > temporary03.tex 
-
+#Limit random number of read stops to make library pair even
+cat T0_CTL_counts_test.tex | xargs shuf -n5803 -e > T0_CTL_counts_test.tex
 #Extract and count only Ts
 grep '^T' temporary02.tex | wc -l
 #count all lines

@@ -63,6 +63,8 @@ samtools view -Sb mapped_trimmed_T1-CMC_S3.sam > mapped_trimmed_T1-CMC_S3.bam
 
 #Create a file with only column contains information POS (Position Number Start)
 cat mapped_trimmed_T1-CMC_S3.sam | awk '{print $4}' > temporary02.tex 
+#If you also need the read sequence
+cat mapped_trimmed_T1-CMC_S3.sam | awk '{print $4,$10}' > temporary03.tex 
 
 #Extract and count only Ts
 grep '^T' temporary02.tex | wc -l

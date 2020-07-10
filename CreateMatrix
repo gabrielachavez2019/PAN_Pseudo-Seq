@@ -1,0 +1,11 @@
+awk -F "\"*,\"*" '{print $1}' MS* > names.txt
+sort -u names.txt > unique.txt
+while read line #Loops through all the lines in your name file.
+do
+grep $line MS* | awk -F',' '{print $3,$4,$5,$6,$7}' > $line.txt #Finds any lines with the current name and pull out data. It looks like you have seven columns, change this if I'm wrong.
+tr "\n" "\t" < $line.txt > tmp #Removes newline characters and replaces them with tab characters so the data is all on one line.
+mv tmp $line.txt
+sed -i "s/^/$line/" $line.txt #Adds the name onto the front of the line.
+echo "" >> $line.txt #Adds newline to end of line.
+cat $line.txt >> FINAL_MATRIX #Adds what we just did to the matrix.
+done < unique.txt

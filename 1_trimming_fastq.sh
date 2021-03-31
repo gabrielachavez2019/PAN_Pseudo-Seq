@@ -10,5 +10,8 @@ mv $file_prefix\_1_cleaned.fastq $file_prefix\_1.fastq
 mv $file_prefix\_2_cleaned.fastq $file_prefix\_2.fastq
 done
 
+#To build index
+bowtie-build PAN.FASTA PAN_INDEX
+
 #Adding mapping with tophat2
- tophat2 --no-novel-indels INDEX SM-16_1_clean.fastq.gz SM-16_2_clean.fastq.gz
+ tophat2 --no-novel-indels PAN_INDEX SM-16_1_clean.fastq.gz SM-16_2_clean.fastq.gz
